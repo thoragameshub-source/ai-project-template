@@ -1,0 +1,157 @@
+{
+  "tipo": "projeto-ia",
+  "repo": "ai-project-template",
+  "versao_template": "4.0",
+  "niveis": {
+    "SIMPLES": {
+      "obrigatorios": [
+        "SOURCE/contexto-master.md",
+        "SOURCE/00-produto/visao-e-escopo.md",
+        "SOURCE/02-tecnico/stack.md",
+        "SOURCE/03-agentes/guardrails.md",
+        "SOURCE/03-agentes/skills/revisar-entrega.md",
+        "SOURCE/04-qualidade/definicao-de-pronto.md"
+      ],
+      "opcionais": []
+    },
+    "MEDIO": {
+      "obrigatorios": [
+        "SOURCE/contexto-master.md",
+        "SOURCE/00-produto/visao-e-escopo.md",
+        "SOURCE/02-tecnico/stack.md",
+        "SOURCE/03-agentes/guardrails.md",
+        "SOURCE/03-agentes/skills/revisar-entrega.md",
+        "SOURCE/04-qualidade/definicao-de-pronto.md",
+        "SOURCE/00-produto/requisitos.md",
+        "SOURCE/01-dominio/glossario.md",
+        "SOURCE/01-dominio/regras-de-negocio.md",
+        "SOURCE/02-tecnico/arquitetura.md",
+        "SOURCE/02-tecnico/convencoes.md",
+        "SOURCE/04-qualidade/checklist-revisao.md",
+        "SOURCE/06-decisoes/ADR-000-modelo.md"
+      ],
+      "opcionais": [
+        "SOURCE/03-agentes/skills/escrever-codigo.md",
+        "SOURCE/03-agentes/skills/escrever-documento.md"
+      ]
+    },
+    "COMPLEXO": {
+      "obrigatorios": [
+        "SOURCE/contexto-master.md",
+        "SOURCE/00-produto/visao-e-escopo.md",
+        "SOURCE/02-tecnico/stack.md",
+        "SOURCE/03-agentes/guardrails.md",
+        "SOURCE/03-agentes/skills/revisar-entrega.md",
+        "SOURCE/04-qualidade/definicao-de-pronto.md",
+        "SOURCE/00-produto/requisitos.md",
+        "SOURCE/01-dominio/glossario.md",
+        "SOURCE/01-dominio/regras-de-negocio.md",
+        "SOURCE/02-tecnico/arquitetura.md",
+        "SOURCE/02-tecnico/convencoes.md",
+        "SOURCE/04-qualidade/checklist-revisao.md",
+        "SOURCE/06-decisoes/ADR-000-modelo.md",
+        "SOURCE/01-dominio/fontes-de-verdade.md",
+        "SOURCE/05-referencias/templates/template-documento.md"
+      ],
+      "opcionais": [
+        "SOURCE/03-agentes/skills/escrever-codigo.md",
+        "SOURCE/03-agentes/skills/escrever-documento.md",
+        "SOURCE/03-agentes/papeis-e-fluxo.md",
+        "SOURCE/05-referencias/exemplos-de-saida/exemplo-documento.md",
+        "SOURCE/05-referencias/schemas/exemplo-payload.md",
+        "SOURCE/05-referencias/templates/template-prompt.md",
+        "SOURCE/06-decisoes/ADR-001-exemplo.md"
+      ]
+    }
+  },
+  "limite_linhas_contexto_master": {
+    "SIMPLES": 40,
+    "MEDIO": 80,
+    "COMPLEXO": 120
+  },
+  "ignorar_placeholders": [
+    "SOURCE/05-referencias/templates",
+    "SOURCE/08-referencias/templates",
+    "SOURCE/06-decisoes/ADR-000",
+    "SOURCE/09-decisoes/ADR-000"
+  ],
+  "pontuacao": {
+    "perguntas": [
+      {
+        "tema": "Tamanho e prazo",
+        "opcoes": [
+          "Entrega em até 1 semana, 1 pessoa",
+          "2 a 8 semanas, 2 a 3 pessoas",
+          "Mais de 2 meses ou mais de 3 pessoas"
+        ]
+      },
+      {
+        "tema": "Integrações externas (APIs, ERPs, bancos, pagamentos)",
+        "opcoes": [
+          "0 a 1, de baixo risco",
+          "2 a 4",
+          "5 ou mais, ou qualquer integração crítica (pagamento, fiscal)"
+        ]
+      },
+      {
+        "tema": "Agentes e automações encadeadas",
+        "opcoes": [
+          "1 agente ou 1 fluxo simples",
+          "2 a 3 etapas ou agentes",
+          "4 ou mais, ou agentes autônomos em produção"
+        ]
+      },
+      {
+        "tema": "Dados e impacto",
+        "opcoes": [
+          "Nenhum dado sensível, uso interno",
+          "Dados internos da empresa ou de clientes sem impacto financeiro",
+          "Dados pessoais (LGPD), financeiros ou usuários pagantes"
+        ]
+      },
+      {
+        "tema": "Aprovação e equipe",
+        "opcoes": [
+          "1 pessoa aprova",
+          "2 a 3 pessoas",
+          "Times ou papéis separados (produto, técnico, jurídico)"
+        ]
+      }
+    ],
+    "faixas": {
+      "SIMPLES": [
+        0,
+        3
+      ],
+      "MEDIO": [
+        4,
+        7
+      ],
+      "COMPLEXO": [
+        8,
+        10
+      ]
+    },
+    "tres_respostas_2": 3,
+    "pisos": [
+      {
+        "pergunta": 2,
+        "a_partir_de": 2,
+        "minimo": "MEDIO",
+        "motivo": "integração crítica (pagamento, fiscal)"
+      },
+      {
+        "pergunta": 4,
+        "a_partir_de": 2,
+        "minimo": "MEDIO",
+        "motivo": "dados pessoais, financeiros ou usuários pagantes"
+      }
+    ]
+  },
+  "prefixos": {
+    "auto": "automação",
+    "agent": "agente de IA",
+    "cowork": "trabalho com documentos",
+    "tool": "ferramenta interna"
+  }
+}
